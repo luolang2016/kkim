@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta content="width=device-width,maximum-scale=1.0,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes"
+          name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="shortcut icon" href="/favicon.ico?v={$f_style_ver}"/>
+    <link rel="stylesheet" href="/static/chat/skin/style.css?v={$f_style_ver}"/>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+</head>
+<body>
+<div class="chat-body">
+    <div class="chat-main">
+        <!--左菜单-->
+        <div class="left-toolbar">
+            <div class="left-toolbar-avatar">
+                <img class="avatar-img" src="/images/headimg.png">
+            </div>
+            <div class="layui-icon chat-list-icon">
+                <img title="聊天" id="onChat" class="left-menu-ico" src="/images/chat_ico2.png">
+                <!--<em class="chat-msg-badge"></em>-->
+            </div>
+            <div class="layui-icon chat-list-icon">
+                <img title="联系人" id="onContact" class="left-menu-ico" src="/images/contact_ico1.png">
+                <!--<em class="chat-msg-badge"></em>-->
+            </div>
+            <div class="layui-icon chat-list-icon chat-list-icon-setting">
+                <img title="设置" class="left-menu-ico" src="/images/setting_ico.png">
+            </div>
+            <div class="layui-icon chat-list-icon chat-list-icon-exit">
+                <img title="退出登录" class="left-menu-ico" src="/images/exit_ico.png">
+            </div>
+        </div>
+        <!--左好友列表-->
+        <div class="left-conversation">
+            <div id="search">
+                <div class="friend-search"><input type="text" placeholder="搜索"></div>
+            </div>
+            <div id="chat_list" class="chat-list-content" style="">
+                <div class="chat-list-scroll-wrapper">
+                    <div class="chat-list-scroll-content"></div>
+                </div>
+            </div>
+            <!--address_list-->
+        </div>
+        <!--右聊天窗口-->
+        <div class="right-dialog">
+            <div class="right-dialog-chat-head">
+                <span class="right-dialog-chat-title"></span>
+                <div>
+                    <span class="dialog-chat-title-icon">···</span>
+                </div>
+            </div>
+            <!--start-->
+            <div class="chat-message-dialog-body">
+                <div class="chat-message-dialog-content">
+                    <ul class="chat-message-dialog-clearfix">
+                        <li class="chat-dialog-msg-notice not_remove" style="display: none;"><span><i
+                                class="chat-dialog-msg-loading"></i>加载中</span></li>
+                        <li class="chat-dialog-msg-notice not_remove" style="display: none;"><span>没有更多消息</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!--end-->
+            <div class="message-dialog">
+                <div class="message-dialog-toolbar">
+                    <!--表情-->
+                    <span class="message-dialog-icon" style="">
+                        <img title="图片" class="" src="/images/pic.png">
+                    </span>
+                    <span class="message-dialog-icon" style="">
+                        <img title="文件" class="" src="/images/file.png">
+                    </span>
+                    <span class="message-dialog-icon" style="">
+                        <img title="语音" class="" src="/images/yuyin.png">
+                    </span>
+                    <span class="message-dialog-icon" style="">
+                        <img title="视频" class="" src="/images/shipin.png">
+                    </span>
+                </div>
+                <div class="message-dialog-text-area"><textarea id="chatContent"></textarea></div>
+                <div class="message-dialog-send">
+                    <input type="hidden" id="selUid" value=""/>
+                    <input type="button" id="sendBtn" value="发送" class="message-dialog-send-btn">
+                </div>
+            </div>
+            <!--here-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/chat/js/modules.js?v={$f_style_ver}"></script>
+<script>
+    layui.use(
+        ['chat'],
+        function () {
+            let m = layui.chat;
+            m.initLoad();
+        }
+    );
+</script>
+</body>
+</html>
